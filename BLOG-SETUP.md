@@ -1,6 +1,8 @@
 # คู่มือเปิดใช้งานบล็อก + CMS (Sveltia CMS)
 
-เว็บนี้เป็น static site ที่มีบล็อกอ่านได้ทันที แต่**การเขียน/แก้ไขบทความผ่านหน้า admin ต้อง deploy ขึ้น Netlify ก่อน** ตามขั้นตอนด้านล่าง (ใช้เวลาประมาณ 15 นาที)
+เว็บนี้เป็น static site ที่มีบล็อกอ่านได้ทันที แต่**การเขียน/แก้ไขบทความผ่านหน้า admin ต้อง deploy ขึ้น Vercel ก่อน** ตามขั้นตอนด้านล่าง (ใช้เวลาประมาณ 15 นาที)
+
+> หมายเหตุ: ระบบ CMS นี้ล็อกอินด้วย **GitHub Personal Access Token โดยตรง** (ไม่พึ่ง Netlify Identity หรือ Git Gateway) — จึงเปลี่ยนผู้ให้บริการโฮสต์เป็น Vercel ได้โดยไม่ต้องแก้ config อะไรเลย
 
 ---
 
@@ -27,16 +29,17 @@ backend:
 
 > ถ้าตอนสร้าง repo บน GitHub ใช้ชื่ออื่น ให้แก้บรรทัดนี้ให้ตรง แล้ว commit + push ใหม่
 
-## ขั้นที่ 3 — เชื่อมต่อ Netlify (ฟรี)
+## ขั้นที่ 3 — เชื่อมต่อ Vercel (ฟรี)
 
-1. เข้า https://app.netlify.com → **Add new site → Import an existing project**
-2. เลือก GitHub → เลือก repo `Portfolio-Sahiram`
-3. ตั้งค่า:
-   - Build command: **เว้นว่างไว้**
-   - Publish directory: `/`
-4. กด **Deploy** รอสักครู่ — ได้ลิงก์ประมาณ `https://portfolio-xxxx.netlify.app`
+1. เข้า https://vercel.com → **Add New... → Project**
+2. เลือก **Import Git Repository** → เชื่อมบัญชี GitHub (ครั้งแรก) → เลือก repo `Portfolio-Sahiram`
+3. ตั้งค่า (ใช้ค่าเริ่มต้นได้เลย):
+   - Framework Preset: **Other**
+   - Build Command: **เว้นว่าง** (ตั้งไว้ใน `vercel.json` แล้ว)
+   - Output Directory: `.`
+4. กด **Deploy** รอสักครู่ — ได้ลิงก์ประมาณ `https://portfolio-sahiram.vercel.app`
 
-> หลัง deploy ครั้งแรก กด **Site configuration → Build & deploy → Deploy logs** เช็คว่า "Published" สีเขียว
+> โปรเจกต์ static แบบนี้ใช้ฟรี 100% ไม่มีค่าใช้จ่าย ไม่กิน credit
 
 ## ขั้นที่ 4 — สร้าง GitHub Personal Access Token (ใช้ครั้งเดียว)
 
@@ -51,11 +54,11 @@ backend:
 ## ขั้นที่ 5 — เริ่มเขียนบทความ
 
 1. เปิดเว็บที่ deploy แล้ว ต่อท้าย URL ด้วย `/admin/`
-   เช่น `https://portfolio-xxxx.netlify.app/admin/`
+   เช่น `https://portfolio-sahiram.vercel.app/admin/`
 2. กด **Login with GitHub** → วาง Personal Access Token จากขั้นที่ 4
 3. เลือก **บทความทั้งหมด** (รายการเดียวของคอลเลกชัน "บล็อก")
 4. กด **Add** → ใส่หัวข้อ วันที่ แท็ก คำโปรย และเนื้อหา
-5. กด **Save** — บทความถูก commit ขึ้น GitHub แล้ว Netlify deploy ให้อัตโนมัติ
+5. กด **Save** — บทความถูก commit ขึ้น GitHub แล้ว Vercel deploy ให้อัตโนมัติ
 6. รีเฟรชหน้าเว็บ → บทความใหม่โผล่ในส่วน "บล็อก" เรียบร้อย
 
 ## อัปโหลดรูป
@@ -81,5 +84,5 @@ backend:
 
 **ลิงก์ที่เกี่ยวข้อง**
 - Sveltia CMS: https://www.sveltia.dev/
-- Netlify: https://app.netlify.com
+- Vercel: https://vercel.com
 - วิธีสร้าง Fine-grained PAT: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
