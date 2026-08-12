@@ -542,7 +542,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .term-body {
   padding: 22px 20px 24px;
-  font-family: "Space Mono", monospace;
+  font-family: "Space Mono", "Noto Sans Thai", monospace;
   font-size: 0.86rem;
   line-height: 1.9;
 }
