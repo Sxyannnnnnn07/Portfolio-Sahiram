@@ -37,7 +37,8 @@ collections:
             hint: "กดปุ่ม เพิ่ม (Add) เพื่อเขียนบทความใหม่"
             fields:
               - { label: "หัวข้อ", name: "title", widget: "string", required: true }
-              - { label: "วันที่", name: "date", widget: "datetime", format: "yyyy-MM-dd", date_format: "yyyy-MM-dd", time_format: false }
+              # ใช้ token YYYY-MM-DD (ตัวใหญ่) — Sveltia ใช้ dayjs ถ้าเป็นตัวเล็ก dd จะกลายเป็นตัวย่อวัน (เช่น Th) วันที่จะเพี้ยน
+              - { label: "วันที่", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
               - { label: "แท็ก", name: "tags", widget: "list" }
               - { label: "คำโปรย (แสดงบนการ์ด)", name: "excerpt", widget: "text", hint: "ประโยคสั้น ๆ 1-2 บรรทัด" }
               - { label: "เนื้อหา", name: "body", widget: "markdown" }

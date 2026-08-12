@@ -75,7 +75,6 @@ const translations = {
     "blog.empty": "ยังไม่มีบทความ — เขียนบทความแรกได้ผ่านระบบจัดการเนื้อหา (/admin/)",
     "blog.error": "โหลดบทความไม่สำเร็จ ลองรีเฟรชอีกครั้ง",
     "blog.read": "อ่านบทความ",
-    "blog.minRead": "นาที",
     "blog.writtenBy": "เขียนโดย",
 
     "contact.tag": "ช่องทางการติดต่อ",
@@ -150,7 +149,6 @@ const translations = {
     "blog.empty": "No posts yet — write the first one in the content manager (/admin/)",
     "blog.error": "Couldn't load posts. Please refresh.",
     "blog.read": "Read post",
-    "blog.minRead": "min read",
     "blog.writtenBy": "Written by",
 
     "contact.tag": "Contact",

@@ -32,11 +32,6 @@
     return d.toLocaleDateString(loc, { year: "numeric", month: "short", day: "numeric" });
   };
 
-  const readTime = (text) => {
-    const clean = String(text || "").replace(/[#*`>_\[\]()!-]/g, " ").trim();
-    return Math.max(1, Math.round(clean.length / 450));
-  };
-
   const esc = (s) =>
     String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
@@ -93,7 +88,6 @@
     statusEl.remove();
 
     posts.forEach((post, i) => {
-      const mins = readTime(post.body);
       const tags = Array.isArray(post.tags) ? post.tags : [];
 
       const card = document.createElement("article");
@@ -107,7 +101,6 @@
         <div class="blog-card-top">
           <span class="blog-num">${String(i + 1).padStart(2, "0")}</span>
           <span class="blog-date">${esc(fmtDate(post.date))}</span>
-          <span class="blog-readtime">${mins} ${esc(t()["blog.minRead"])}</span>
         </div>
         <h3 class="blog-title">${esc(post.title)}</h3>
         ${post.excerpt ? `<p class="blog-excerpt">${esc(post.excerpt)}</p>` : ""}
@@ -150,7 +143,7 @@
     openIndex = i;
 
     readerContent.innerHTML = `<p class="reader-loading">${esc(t()["blog.loading"])}</p>`;
-    readerMeta.textContent = `${fmtDate(post.date)} · ${readTime(post.body)} ${t()["blog.minRead"]} · ${t()["blog.writtenBy"]} SY_`;
+    readerMeta.textContent = `${fmtDate(post.date)} · ${t()["blog.writtenBy"]} SY_`;
     showReader();
 
     const html = await renderMarkdown(post.body);
