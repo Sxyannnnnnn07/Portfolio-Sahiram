@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+# ============================================================
+# Sveltia CMS — ระบบจัดการเนื้อหาเว็บพอตฟอลิโอ
+# (drop-in replacement ของ Decap/Netlify CMS)
+# ------------------------------------------------------------
+# ⚠️ สำคัญ: เปลี่ยน `repo` ด้านล่างให้เป็น repo GitHub จริงของคุณ
+#    รูปแบบ: เจ้าของ/ชื่อrepo  เช่น  Sxyannnnnnn07/portfolio
+# ============================================================
+
+backend:
+  name: github
+  repo: Sxyannnnnnn07/Portfolio-Sahiram
+  branch: main
+  # เข้าสู่ระบบ: ใช้ GitHub Personal Access Token
+  # (วิธีสร้าง token ดูในคู่มือ BLOG-SETUP.md)
+
+# โฟลเดอร์เก็บรูปที่อัปโหลดผ่าน CMS
+media_folder: "content/uploads"
+public_folder: "/content/uploads"
+
+# ภาษา UI ของหน้า admin
+locale: "th"
+
+collections:
+  - name: "blog"
+    label: "บล็อก"
+    label_singular: "บทความ"
+    description: "บทความทั้งหมดในเว็บพอตฟอลิโอ"
+    files:
+      - name: "posts"
+        label: "บทความทั้งหมด"
+        file: "content/posts.json"
+        fields:
+          - label: "บทความ"
+            name: "posts"
+            widget: "list"
+            hint: "กดปุ่ม เพิ่ม (Add) เพื่อเขียนบทความใหม่"
+            fields:
+              - { label: "หัวข้อ", name: "title", widget: "string", required: true }
+              - { label: "วันที่", name: "date", widget: "datetime", format: "yyyy-MM-dd", date_format: "yyyy-MM-dd", time_format: false }
+              - { label: "แท็ก", name: "tags", widget: "list" }
+              - { label: "คำโปรย (แสดงบนการ์ด)", name: "excerpt", widget: "text", hint: "ประโยคสั้น ๆ 1-2 บรรทัด" }
+              - { label: "เนื้อหา", name: "body", widget: "markdown" }

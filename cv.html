@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — ซาฮีรัม เจ๊ะหะ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #141a2a;
+      --muted: #5a6478;
+      --line: #e3e6f0;
+      --brand: #4f46e5;
+      --brand-2: #7c3aed;
+      --brand-soft: #eef0fb;
+      --cyan: #0891b2;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Noto Sans Thai", "Sora", sans-serif;
+      background: linear-gradient(180deg, #eef1f9, #f7f5ff);
+      color: var(--ink);
+      line-height: 1.7;
+      padding: 32px 16px;
+      min-height: 100vh;
+    }
+
+    /* ---------- Toolbar ---------- */
+    .toolbar {
+      max-width: 860px;
+      margin: 0 auto 22px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .btn svg { width: 16px; height: 16px; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-print {
+      background: linear-gradient(120deg, var(--brand), var(--brand-2));
+      color: #fff;
+      border: none;
+      box-shadow: 0 8px 22px rgba(79, 70, 229, 0.35);
+    }
+    .btn-print:hover { box-shadow: 0 12px 28px rgba(79, 70, 229, 0.45); }
+    .btn-back {
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 14px rgba(20, 26, 42, 0.06);
+    }
+    .btn-back:hover { box-shadow: 0 8px 20px rgba(20, 26, 42, 0.1); }
+
+    /* ---------- CV card ---------- */
+    .cv {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 30px 70px rgba(12, 18, 32, 0.16);
+      overflow: hidden;
+      animation: rise 0.5s ease both;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* ---------- Header ---------- */
+    .cv-head {
+      position: relative;
+      padding: 40px 48px 34px;
+      background:
+        radial-gradient(560px 240px at 85% -10%, rgba(124, 58, 237, 0.5), transparent 62%),
+        radial-gradient(420px 230px at -5% 115%, rgba(8, 145, 178, 0.4), transparent 60%),
+        linear-gradient(120deg, #1e1b4b, #3730a3 45%, #5b21b6);
+      color: #fff;
+      overflow: hidden;
+    }
+    .cv-head::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+    .cv-head::after {
+      content: "CV";
+      position: absolute;
+      right: -14px;
+      bottom: -34px;
+      font-family: "Sora", sans-serif;
+      font-size: 10rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.14);
+      pointer-events: none;
+      user-select: none;
+    }
+    .cv-head > * { position: relative; z-index: 1; }
+
+    .cv-head-inner { display: flex; align-items: center; gap: 22px; }
+    .cv-avatar {
+      width: 84px; height: 84px;
+      border-radius: 24px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Sora", sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.06));
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .cv-name {
+      font-family: "Sora", "Noto Sans Thai", sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .cv-nick { font-weight: 500; opacity: 0.85; font-size: 1rem; margin-top: 2px; }
+    .cv-role {
+      display: inline-flex;
+      margin-top: 14px;
+      padding: 7px 16px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-size: 0.88rem;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .cv-contact {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .c-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 15px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-size: 0.84rem;
+      color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .c-item:hover { background: rgba(255, 255, 255, 0.24); transform: translateY(-2px); }
+    .c-item svg { width: 15px; height: 15px; flex-shrink: 0; opacity: 0.92; }
+    .c-item a { color: inherit; text-decoration: none; }
+    .c-item a:hover { text-decoration: underline; }
+
+    /* ---------- Body ---------- */
+    .cv-body { padding: 38px 48px 44px; }
+    .cv-section { margin-bottom: 30px; }
+    .cv-section:last-child { margin-bottom: 0; }
+
+    .cv-h {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Sora", "Noto Sans Thai", sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 16px;
+      color: var(--brand);
+    }
+    .h-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
+      flex-shrink: 0;
+    }
+    .h-icon svg { width: 17px; height: 17px; }
+    .cv-h::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(79, 70, 229, 0.5), transparent);
+    }
+
+    .cv-p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.85;
+      padding: 18px 22px;
+      background: linear-gradient(180deg, #f7f8fd, #f2f4fb);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--brand);
+      border-radius: 0 14px 14px 0;
+    }
+
+    /* Education */
+    .edu-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 4px 18px rgba(20, 26, 42, 0.05);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .edu-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--brand);
+      box-shadow: 0 12px 30px rgba(79, 70, 229, 0.14);
+    }
+    .edu-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--brand-soft);
+      color: var(--brand);
+    }
+    .edu-icon svg { width: 24px; height: 24px; }
+    .edu-info { flex: 1; min-width: 0; }
+    .edu-name { font-weight: 700; font-size: 0.98rem; }
+    .edu-meta { color: var(--muted); font-size: 0.86rem; }
+    .edu-year {
+      flex-shrink: 0;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: linear-gradient(120deg, var(--brand), var(--brand-2));
+      color: #fff;
+      font-family: "Sora", "Noto Sans Thai", sans-serif;
+      font-size: 0.76rem;
+      font-weight: 600;
+      box-shadow: 0 6px 14px rgba(79, 70, 229, 0.28);
+    }
+
+    /* Skills */
+    .skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill-group {
+      padding: 18px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .skill-group:hover {
+      transform: translateY(-3px);
+      border-color: rgba(79, 70, 229, 0.5);
+      box-shadow: 0 10px 26px rgba(79, 70, 229, 0.12);
+    }
+    .skill-group h4 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+    .skill-group h4 svg { width: 17px; height: 17px; color: var(--brand); flex-shrink: 0; }
+    .skill-group ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .skill-group li {
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #f4f5fa;
+      border: 1px solid transparent;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #3d4457;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .skill-group li:hover {
+      background: var(--brand-soft);
+      color: var(--brand);
+      border-color: rgba(79, 70, 229, 0.3);
+      transform: translateX(3px);
+    }
+
+    /* Projects */
+    .proj-item {
+      position: relative;
+      display: flex;
+      gap: 16px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      background: #fff;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .proj-item::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 22px; right: 22px;
+      height: 3px;
+      border-radius: 0 0 4px 4px;
+      background: linear-gradient(90deg, var(--brand), var(--cyan));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .proj-item:hover {
+      transform: translateY(-3px);
+      border-color: rgba(79, 70, 229, 0.5);
+      box-shadow: 0 10px 26px rgba(79, 70, 229, 0.12);
+    }
+    .proj-item:hover::before { transform: scaleX(1); }
+    .proj-item:last-child { margin-bottom: 0; }
+    .proj-num {
+      font-family: "Sora", sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1.2px rgba(79, 70, 229, 0.4);
+      flex-shrink: 0;
+      padding-top: 2px;
+      user-select: none;
+    }
+    .proj-content { flex: 1; min-width: 0; }
+    .proj-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .proj-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .proj-name { font-weight: 700; font-size: 0.98rem; }
+    .proj-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--brand);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .proj-link svg { width: 13px; height: 13px; transition: transform 0.2s ease; }
+    .proj-link:hover { text-decoration: underline; }
+    .proj-link:hover svg { transform: translate(2px, -2px); }
+    .proj-desc { color: var(--muted); font-size: 0.87rem; margin-top: 5px; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .proj-tags span {
+      padding: 3px 11px;
+      border-radius: 100px;
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    /* Note */
+    .cv-note {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      padding: 16px 20px;
+      border-radius: 14px;
+      background: linear-gradient(120deg, var(--brand), var(--brand-2));
+      color: #fff;
+      font-size: 0.9rem;
+      box-shadow: 0 12px 30px rgba(79, 70, 229, 0.3);
+      overflow: hidden;
+    }
+    .cv-note::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+      background-size: 18px 18px;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .cv-note svg { width: 20px; height: 20px; flex-shrink: 0; position: relative; z-index: 1; }
+    .cv-note span { position: relative; z-index: 1; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 760px) {
+      body { padding: 16px 10px; }
+      .cv-head { padding: 30px 24px; }
+      .cv-body { padding: 26px 22px 34px; }
+      .cv-head-inner { flex-direction: column; text-align: center; gap: 14px; }
+      .cv-avatar { width: 68px; height: 68px; font-size: 1.35rem; border-radius: 18px; }
+      .cv-name { font-size: 1.7rem; }
+      .cv-contact { justify-content: center; }
+      .cv-head::after { font-size: 6rem; right: -6px; bottom: -20px; }
+      .skill-groups { grid-template-columns: 1fr; }
+      .edu-card { flex-wrap: wrap; gap: 12px; }
+      .edu-year { width: 100%; text-align: center; }
+      .proj-item { flex-direction: column; gap: 8px; }
+      .proj-num { font-size: 1.1rem; }
+    }
+
+    /* ---------- Print ---------- */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .toolbar { display: none; }
+      .cv { box-shadow: none; border-radius: 0; max-width: 100%; animation: none; }
+      .cv-head {
+        background: #fff !important;
+        color: #111;
+        border-bottom: 3px solid var(--brand);
+        padding: 8px 0 16px;
+      }
+      .cv-head::before, .cv-head::after { display: none; }
+      .cv-avatar {
+        background: var(--brand-soft);
+        color: var(--brand);
+        border-color: var(--line);
+        box-shadow: none;
+      }
+      .cv-name { color: #111; -webkit-text-fill-color: initial; }
+      .cv-nick { color: #333; }
+      .cv-role { background: var(--brand-soft); color: var(--brand); border-color: var(--line); }
+      .cv-contact { color: #333; }
+      .c-item { background: #f4f5fa; border-color: var(--line); color: #333; }
+      .cv-h { color: var(--brand); }
+      .h-icon { background: var(--brand); }
+      .cv-p { background: #f7f8fd; border-color: var(--line); color: #333; }
+      .edu-card, .skill-group, .proj-item { border-color: #ddd; box-shadow: none; }
+      .edu-card:hover, .skill-group:hover, .proj-item:hover { transform: none; border-color: #ddd; box-shadow: none; }
+      .skill-group li, .proj-tags span { background: #eef0f7 !important; color: #333; }
+      .skill-group li:hover { transform: none; background: #eef0f7; }
+      .edu-year { background: var(--brand-soft); color: var(--brand); box-shadow: none; }
+      .proj-num { color: rgba(79, 70, 229, 0.6); -webkit-text-stroke: 0; }
+      .cv-note { background: #f4f5fa; color: #333; box-shadow: none; border: 1px solid var(--line); }
+      .cv-note::after { display: none; }
+      .cv-note svg { color: var(--brand); }
+      @page { margin: 1.4cm; }
+      .cv-section { break-inside: avoid; }
+      .proj-item { break-inside: avoid; }
+      .skill-groups { grid-template-columns: 1fr 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn btn-print" onclick="window.print()" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+      บันทึกเป็น PDF / พิมพ์
+    </button>
+    <a class="btn btn-back" href="index.html">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      กลับสู่เว็บโปรไฟล์
+    </a>
+  </div>
+
+  <article class="cv">
+    <header class="cv-head">
+      <div class="cv-head-inner">
+        <div class="cv-avatar" aria-hidden="true">SY</div>
+        <div>
+          <h1 class="cv-name">ซาฮีรัม เจ๊ะหะ</h1>
+          <p class="cv-nick">Sahiram Jehha (ซียัง) · อายุ 21 ปี</p>
+          <span class="cv-role">Full-Stack Web Developer · นักศึกษา วิศวกรรมคอมพิวเตอร์ ปี 3</span>
+        </div>
+      </div>
+      <div class="cv-contact">
+        <span class="c-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg>
+          <a href="tel:+66989687435">098-968-7435</a>
+        </span>
+        <span class="c-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <a href="mailto:sahiramm12345@gmail.com">sahiramm12345@gmail.com</a>
+        </span>
+        <span class="c-item">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+          <a href="https://www.facebook.com/search/top?q=Sahiram%20Jehha" target="_blank" rel="noopener">Sahiram Jehha</a>
+        </span>
+        <span class="c-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
+          <a href="https://www.instagram.com/sii.yannnngxd" target="_blank" rel="noopener">sii.yannnngxd</a>
+        </span>
+      </div>
+    </header>
+
+    <div class="cv-body">
+      <section class="cv-section">
+        <h2 class="cv-h">
+          <span class="h-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </span>
+          เกี่ยวกับผม
+        </h2>
+        <p class="cv-p">
+          นักศึกษาชั้นปีที่ 3 คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยนราธิวาสราชนครินทร์
+          ผู้หลงใหลในการพัฒนาเว็บแอปพลิเคชันแบบครบวงจร ตั้งแต่การออกแบบอินเทอร์เฟซจนถึงระบบหลังบ้าน
+          ชอบเรียนรู้เทคโนโลยีใหม่ๆ และให้ความสำคัญกับคุณภาพของโค้ดและประสบการณ์ที่ดีของผู้ใช้
+        </p>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-h">
+          <span class="h-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><path d="M22 10v6"/></svg>
+          </span>
+          การศึกษา
+        </h2>
+        <div class="edu-card">
+          <span class="edu-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+          </span>
+          <div class="edu-info">
+            <p class="edu-name">มหาวิทยาลัยนราธิวาสราชนครินทร์</p>
+            <p class="edu-meta">คณะวิศวกรรมศาสตร์ · สาขาวิศวกรรมคอมพิวเตอร์</p>
+          </div>
+          <span class="edu-year">ปัจจุบัน · ชั้นปี 3</span>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-h">
+          <span class="h-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
+          </span>
+          ทักษะ
+        </h2>
+        <div class="skill-groups">
+          <div class="skill-group">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 1 10-10c0 2.2-1.8 4-4 4h-2a2 2 0 0 0-2 2c0 .5.2 1 .5 1.4.4.4.5.9.5 1.6A1.6 1.6 0 0 1 12 22z"/><circle cx="7.5" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="17" cy="10" r="1" fill="currentColor" stroke="none"/></svg>
+              Frontend
+            </h4>
+            <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8-.8-.7-2.2-.7-3 .8z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.7 7.9-6 11a22 22 0 0 1-4 2z"/><path d="M9 12H4s.6-3.3 2-4.5c1.6-1.4 5 0 5 0"/><path d="M12 15v5s3.3-.6 4.5-2c1.4-1.6 0-5 0-5"/></svg>
+              Backend
+            </h4>
+            <ul><li>Node.js</li><li>Next.js</li><li>Python</li><li>SQL</li></ul>
+          </div>
+          <div class="skill-group">
+            <h4>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+              ฐานข้อมูล
+            </h4>
+            <ul><li>MySQL</li><li>Supabase</li><li>PostgreSQL</li><li>MongoDB</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-h">
+          <span class="h-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </span>
+          ผลงาน / โปรเจกต์
+        </h2>
+
+        <div class="proj-item">
+          <span class="proj-num" aria-hidden="true">01</span>
+          <div class="proj-content">
+            <div class="proj-head">
+              <span class="proj-name">Jehha Sneaker</span>
+              <div class="proj-links">
+                <a class="proj-link" href="https://jehha-sneaker.vercel.app/" target="_blank" rel="noopener">
+                  jehha-sneaker.vercel.app
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                </a>
+                <a class="proj-link" href="https://github.com/Sxyannnnnnn07/shoeshop-ecommerce" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+            <p class="proj-desc">เว็บร้านขายรองเท้าออนไลน์ ดีไซน์ทันสมัย รองรับการใช้งานบนมือถือ</p>
+            <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          </div>
+        </div>
+
+        <div class="proj-item">
+          <span class="proj-num" aria-hidden="true">02</span>
+          <div class="proj-content">
+            <div class="proj-head">
+              <span class="proj-name">To-Do List</span>
+              <div class="proj-links">
+                <a class="proj-link" href="https://to-do-list-eta-rose.vercel.app/" target="_blank" rel="noopener">
+                  to-do-list-eta-rose.vercel.app
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                </a>
+                <a class="proj-link" href="https://github.com/Sxyannnnnnn07/To-do-list" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+            <p class="proj-desc">เว็บแอปจัดการรายการสิ่งที่ต้องทำ เรียบง่าย ช่วยวางแผนงานได้ทุกวัน</p>
+            <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          </div>
+        </div>
+
+        <div class="proj-item">
+          <span class="proj-num" aria-hidden="true">03</span>
+          <div class="proj-content">
+            <div class="proj-head">
+              <span class="proj-name">Windows HUP</span>
+              <div class="proj-links">
+                <a class="proj-link" href="https://windows-hup.onrender.com/" target="_blank" rel="noopener">
+                  windows-hup.onrender.com
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                </a>
+                <a class="proj-link" href="https://github.com/Sxyannnnnnn07/windows-hup" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+            <p class="proj-desc">เว็บแอปพลิเคชันเครื่องมือช่วยเหลือผู้ใช้ระบบปฏิบัติการ Windows</p>
+            <div class="proj-tags"><span>Node.js</span><span>JavaScript</span></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cv-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+        <span>เปิดรับโอกาสฝึกงาน งานพาร์ทไทม์ หรือโปรเจกต์ฟรีแลนซ์ — ยินดีพูดคุยทุกช่องทาง</span>
+      </div>
+    </div>
+  </article>
+
+</body>
+</html>

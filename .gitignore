@@ -1,0 +1,15 @@
+# Freebuff preview tooling
+.freebuff/
+
+# Logs
+*.log
+*.log.err
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp

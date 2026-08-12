@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahiram Jehha — Portfolio</title>
+  <meta name="description" content="Portfolio of Sahiram Jehha — Computer Engineering student & web developer." />
+  <meta name="theme-color" content="#0a0a0d" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sahiram Jehha — Portfolio" />
+  <meta property="og:description" content="Portfolio of Sahiram Jehha — Computer Engineering student & web developer." />
+  <meta property="og:locale" content="th_TH" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0d'/%3E%3Ctext x='50' y='66' font-size='42' font-family='Arial, sans-serif' font-weight='bold' fill='%23c9f24a' text-anchor='middle'%3ESY%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <noscript><style>.reveal { opacity: 1; transform: none; filter: none; }</style></noscript>
+</head>
+<body>
+
+  <!-- Film grain overlay -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ===== Navbar ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo" aria-label="Sahiram Jehha">SY<span class="logo-cursor">_</span></a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+        <div class="nav-links">
+          <a href="#home" class="nav-link active" data-i18n="nav.home">หน้าแรก</a>
+          <a href="#about" class="nav-link" data-i18n="nav.about">เกี่ยวกับผม</a>
+          <a href="#skills" class="nav-link" data-i18n="nav.skills">ทักษะ</a>
+          <a href="#projects" class="nav-link" data-i18n="nav.projects">ผลงาน</a>
+          <a href="#blog" class="nav-link" data-i18n="nav.blog">บล็อก</a>
+          <a href="#contact" class="nav-link" data-i18n="nav.contact">ติดต่อ</a>
+        </div>
+        <div class="nav-actions">
+          <button class="icon-btn lang-btn" id="langBtn" type="button" aria-label="Switch to English">EN</button>
+          <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <button class="hamburger" id="menuBtn" type="button" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="grid-pattern"></div>
+        <span class="outline-word outline-hero">SY</span>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="hero-badge reveal">
+            <span class="pulse-dot"></span>
+            <span data-i18n="hero.available">เปิดรับโอกาสและงานใหม่</span>
+          </span>
+
+          <p class="hero-greeting reveal" data-i18n="hero.greeting">สวัสดีครับ ผมชื่อ</p>
+          <h1 class="hero-name reveal">
+            <span class="name-line" data-i18n="hero.nameLine1">ซาฮีรัม</span>
+            <span class="name-line name-gradient" data-i18n="hero.nameLine2">เจ๊ะหะ</span>
+          </h1>
+
+          <div class="hero-role reveal">
+            <span class="role-prompt" aria-hidden="true">~$</span>
+            <span class="typing" id="typing" aria-hidden="true"></span><span class="cursor" aria-hidden="true"></span>
+          </div>
+
+          <p class="hero-desc reveal" data-i18n="hero.desc">
+            นักศึกษาวิศวกรรมคอมพิวเตอร์ ชั้นปีที่ 3 มหาวิทยาลัยนราธิวาสราชนครินทร์
+            ผู้หลงใหลในการพัฒนาเว็บแอปพลิเคชัน รักการออกแบบที่เรียบง่ายแต่ทรงพลัง
+          </p>
+
+          <div class="hero-cta reveal">
+            <a href="#projects" class="btn btn-primary magnetic" data-i18n="hero.ctaWork">ดูผลงานของผม</a>
+            <a href="#contact" class="btn btn-ghost" data-i18n="hero.ctaContact">ติดต่อผม</a>
+            <a href="cv.html" class="btn btn-cv">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>
+              <span data-i18n="hero.ctaCv">ดาวน์โหลด CV</span>
+            </a>
+          </div>
+
+          <div class="hero-socials reveal">
+            <a href="https://www.facebook.com/search/top?q=Sahiram%20Jehha" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn magnetic">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/sii.yannnngxd" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn magnetic">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="https://github.com/Sxyannnnnnn07" target="_blank" rel="noopener" aria-label="GitHub" class="social-btn magnetic">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-terminal reveal">
+          <div class="term-window">
+            <div class="term-bar">
+              <span class="term-dots"><i></i><i></i><i></i></span>
+              <span class="term-title">sahiram@portfolio:~</span>
+            </div>
+            <div class="term-body">
+              <p class="term-line"><span class="prompt">$</span> whoami</p>
+              <p class="term-out" data-i18n="term.whoamiOut">ซาฮีรัม เจ๊ะหะ · อายุ 21 · นักศึกษา CE</p>
+              <p class="term-line"><span class="prompt">$</span> cat roles.txt</p>
+              <p class="term-out" data-i18n="term.catOut">frontend · backend · database</p>
+              <p class="term-line"><span class="prompt">$</span> ./status --check</p>
+              <p class="term-out term-ok" data-i18n="term.statusOut">● open_to_work — เปิดรับงาน</p>
+              <p class="term-line"><span class="prompt">$</span><span class="term-cursor" aria-hidden="true">▊</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-hint" aria-label="Scroll to about section">
+        <span class="mouse" aria-hidden="true"><span class="wheel"></span></span>
+      </a>
+    </section>
+
+    <!-- ===== Marquee ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>HTML</span><i>✦</i><span>CSS</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Node.js</span><i>✦</i><span>Next.js</span><i>✦</i><span>Python</span><i>✦</i><span>SQL</span><i>✦</i><span>MySQL</span><i>✦</i><span>Supabase</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>MongoDB</span><i>✦</i>
+        <span>HTML</span><i>✦</i><span>CSS</span><i>✦</i><span>JavaScript</span><i>✦</i><span>Node.js</span><i>✦</i><span>Next.js</span><i>✦</i><span>Python</span><i>✦</i><span>SQL</span><i>✦</i><span>MySQL</span><i>✦</i><span>Supabase</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>MongoDB</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ===== About ===== -->
+    <section class="section" id="about">
+      <span class="outline-word" aria-hidden="true">ABOUT</span>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">
+            <span class="sl-slash">//</span> <span data-i18n="about.tag">เกี่ยวกับผม</span> <span class="section-num">[01]</span>
+          </p>
+          <h2 class="section-title" data-i18n="about.title">เรื่องราวของผม</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <p class="about-bio" data-i18n="about.bio">
+              สวัสดีครับ ผม ซาฮีรัม เจ๊ะหะ (ซียัง) อายุ 21 ปี
+              นักศึกษาชั้นปีที่ 3 คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์
+              มหาวิทยาลัยนราธิวาสราชนครินทร์
+              ผมเริ่มต้นเส้นทางการเขียนโค้ดจากความสนใจในเว็บไซต์
+              และพัฒนาตัวเองอย่างต่อเนื่องผ่านทั้งงานในห้องเรียนและโปรเจกต์ส่วนตัว
+              ผมให้ความสำคัญกับคุณภาพของโค้ดและประสบการณ์ที่ดีของผู้ใช้
+            </p>
+            <ul class="facts">
+              <li><span class="fact-label" data-i18n="about.fNick">ชื่อเล่น</span><span class="fact-value">ซียัง (Siiyang)</span></li>
+              <li><span class="fact-label" data-i18n="about.fAge">อายุ</span><span class="fact-value">21 ปี</span></li>
+              <li><span class="fact-label" data-i18n="about.fStatus">สถานะ</span><span class="fact-value" data-i18n="about.fStatusValue">นักศึกษา ปี 3</span></li>
+              <li><span class="fact-label" data-i18n="about.fUni">มหาวิทยาลัย</span><span class="fact-value" data-i18n="about.fUniValue">มหาวิทยาลัยนราธิวาสราชนครินทร์</span></li>
+              <li><span class="fact-label" data-i18n="about.fMajor">สาขา</span><span class="fact-value" data-i18n="about.fMajorValue">วิศวกรรมคอมพิวเตอร์</span></li>
+            </ul>
+          </div>
+
+          <div class="stats reveal">
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="17" rx="2"/>
+                  <path d="M16 2v4M8 2v4M3 10h18"/>
+                </svg>
+              </span>
+              <span class="stat-value"><span class="stat-num" data-count="21">0</span></span>
+              <span class="stat-label" data-i18n="stats.age">อายุ (ปี)</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                </svg>
+              </span>
+              <span class="stat-value"><span class="stat-num" data-count="3">0</span><span class="stat-plus">+</span></span>
+              <span class="stat-label" data-i18n="stats.projects">โปรเจกต์</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m8 6-6 6 6 6M16 6l6 6-6 6"/>
+                </svg>
+              </span>
+              <span class="stat-value"><span class="stat-num" data-count="11">0</span><span class="stat-plus">+</span></span>
+              <span class="stat-label" data-i18n="stats.skills">ทักษะที่ใช้</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10 12 5 2 10l10 5 10-5z"/>
+                  <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/>
+                </svg>
+              </span>
+              <span class="stat-value"><span class="stat-num" data-count="3">0</span></span>
+              <span class="stat-label" data-i18n="stats.year">ชั้นปีการศึกษา</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="section section-alt" id="skills">
+      <span class="outline-word" aria-hidden="true">SKILLS</span>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">
+            <span class="sl-slash">//</span> <span data-i18n="skills.tag">ทักษะของผม</span> <span class="section-num">[02]</span>
+          </p>
+          <h2 class="section-title" data-i18n="skills.title">สิ่งที่ผมถนัด</h2>
+          <p class="section-sub" data-i18n="skills.sub">สแตกเทคโนโลยีที่ผมใช้ในการพัฒนาเว็บแอปพลิเคชันแบบครบวงจร</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-head">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22a10 10 0 1 1 10-10c0 2.2-1.8 4-4 4h-2a2 2 0 0 0-2 2c0 .5.2 1 .5 1.4.4.4.5.9.5 1.6A1.6 1.6 0 0 1 12 22z"/>
+                  <circle cx="7.5" cy="11.5" r="1" fill="currentColor" stroke="none"/>
+                  <circle cx="12" cy="7" r="1" fill="currentColor" stroke="none"/>
+                  <circle cx="17" cy="10" r="1" fill="currentColor" stroke="none"/>
+                </svg>
+              </span>
+              <div>
+                <h3 data-i18n="skills.frontend">Frontend</h3>
+                <p data-i18n="skills.frontendDesc">สร้างอินเทอร์เฟซที่สวยงาม ตอบสนองทุกอุปกรณ์</p>
+              </div>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar">
+                <div class="bar-top"><span>&gt; HTML</span><span>90%</span></div>
+                <div class="bar"><div class="bar-fill" style="--w:90%"></div></div>
+              </div>
+              <div class="skill-bar">
+                <div class="bar-top"><span>&gt; CSS</span><span>85%</span></div>
+                <div class="bar"><div class="bar-fill" style="--w:85%"></div></div>
+              </div>
+              <div class="skill-bar">
+                <div class="bar-top"><span>&gt; JavaScript</span><span>80%</span></div>
+                <div class="bar"><div class="bar-fill" style="--w:80%"></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal" style="--d:.1s">
+            <div class="skill-head">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8-.8-.7-2.2-.7-3 .8z"/>
+                  <path d="M12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.7 7.9-6 11a22 22 0 0 1-4 2z"/>
+                  <path d="M9 12H4s.6-3.3 2-4.5c1.6-1.4 5 0 5 0"/>
+                  <path d="M12 15v5s3.3-.6 4.5-2c1.4-1.6 0-5 0-5"/>
+                </svg>
+              </span>
+              <div>
+                <h3 data-i18n="skills.backend">Backend</h3>
+                <p data-i18n="skills.backendDesc">พัฒนา API และระบบหลังบ้านให้มีประสิทธิภาพ</p>
+              </div>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar">
+                <div class="bar-top"><span>&gt; Node.js</span><span>80%</span></div>
+                <div class="bar"><div class="bar-fill" style="--w:80%"></div></div>
+              </div>
+              <div class="skill-bar">
+                <div class="bar-top"><span>&gt; Next.js</span><span>75%</span></div>
+                <div class="bar"><div class="bar-fill" style="--w:75%"></div></div>
+              </div>
+              <div class="skill-bar">
+                <div class="bar-top"><span>&gt; Python</span><span>70%</span></div>
+                <div class="bar"><div class="bar-fill" style="--w:70%"></div></div>
+              </div>
+              <div class="skill-bar">
+                <div class="bar-top"><span>&gt; SQL</span><span>75%</span></div>
+                <div class="bar"><div class="bar-fill" style="--w:75%"></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal" style="--d:.2s">
+            <div class="skill-head">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                  <path d="M3 5v14a9 3 0 0 0 18 0V5"/>
+                  <path d="M3 12a9 3 0 0 0 18 0"/>
+                </svg>
+              </span>
+              <div>
+                <h3 data-i18n="skills.database">ฐานข้อมูล</h3>
+                <p data-i18n="skills.databaseDesc">ออกแบบและจัดการข้อมูลอย่างเป็นระบบ</p>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="tag">&gt; MySQL</span>
+              <span class="tag">&gt; Supabase</span>
+              <span class="tag">&gt; PostgreSQL</span>
+              <span class="tag">&gt; MongoDB</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section class="section" id="projects">
+      <span class="outline-word" aria-hidden="true">WORK</span>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">
+            <span class="sl-slash">//</span> <span data-i18n="projects.tag">ผลงานของผม</span> <span class="section-num">[03]</span>
+          </p>
+          <h2 class="section-title" data-i18n="projects.title">โปรเจกต์ที่ผมภูมิใจ</h2>
+          <p class="section-sub" data-i18n="projects.sub">ผลงานบางส่วนที่ผมเคยพัฒนา — คลิกเพื่อเยี่ยมชม</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <a class="project-cover cover-1" href="https://jehha-sneaker.vercel.app/" target="_blank" rel="noopener" aria-label="Jehha Sneaker">
+              <div class="browser-bar" aria-hidden="true">
+                <span class="browser-dots"><i></i><i></i><i></i></span>
+                <span class="browser-url">jehha-sneaker.vercel.app</span>
+              </div>
+              <div class="cover-screen">
+                <img class="cover-img" src="assets/projects/sneaker.png" alt="" loading="lazy" />
+              </div>
+              <span class="cover-overlay" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+              </span>
+            </a>
+            <div class="project-body">
+              <h3>Jehha Sneaker</h3>
+              <p data-i18n="projects.p1">เว็บร้านขายรองเท้าออนไลน์ ดีไซน์ทันสมัย รองรับการใช้งานบนมือถือ</p>
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a class="project-link" href="https://jehha-sneaker.vercel.app/" target="_blank" rel="noopener">
+                  <span data-i18n="projects.view">เยี่ยมชมโปรเจกต์</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                </a>
+                <a class="project-link" href="https://github.com/Sxyannnnnnn07/shoeshop-ecommerce" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" style="--d:.1s">
+            <a class="project-cover cover-2" href="https://to-do-list-eta-rose.vercel.app/" target="_blank" rel="noopener" aria-label="To-Do List">
+              <div class="browser-bar" aria-hidden="true">
+                <span class="browser-dots"><i></i><i></i><i></i></span>
+                <span class="browser-url">to-do-list-eta-rose.vercel.app</span>
+              </div>
+              <div class="cover-screen">
+                <img class="cover-img" src="assets/projects/todo.png" alt="" loading="lazy" />
+              </div>
+              <span class="cover-overlay" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+              </span>
+            </a>
+            <div class="project-body">
+              <h3>To-Do List</h3>
+              <p data-i18n="projects.p2">เว็บแอปจัดการรายการสิ่งที่ต้องทำ เรียบง่าย ช่วยวางแผนงานได้ทุกวัน</p>
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a class="project-link" href="https://to-do-list-eta-rose.vercel.app/" target="_blank" rel="noopener">
+                  <span data-i18n="projects.view">เยี่ยมชมโปรเจกต์</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                </a>
+                <a class="project-link" href="https://github.com/Sxyannnnnnn07/To-do-list" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" style="--d:.2s">
+            <a class="project-cover cover-3" href="https://windows-hup.onrender.com/" target="_blank" rel="noopener" aria-label="Windows HUP">
+              <div class="browser-bar" aria-hidden="true">
+                <span class="browser-dots"><i></i><i></i><i></i></span>
+                <span class="browser-url">windows-hup.onrender.com</span>
+              </div>
+              <div class="cover-screen">
+                <img class="cover-img" src="assets/projects/winhup.png" alt="" loading="lazy" />
+              </div>
+              <span class="cover-overlay" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+              </span>
+            </a>
+            <div class="project-body">
+              <h3>Windows HUP</h3>
+              <p data-i18n="projects.p3">เว็บแอปพลิเคชันเครื่องมือช่วยเหลือผู้ใช้ระบบปฏิบัติการ Windows</p>
+              <div class="project-tags">
+                <span>Node.js</span><span>JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a class="project-link" href="https://windows-hup.onrender.com/" target="_blank" rel="noopener">
+                  <span data-i18n="projects.view">เยี่ยมชมโปรเจกต์</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                </a>
+                <a class="project-link" href="https://github.com/Sxyannnnnnn07/windows-hup" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Blog ===== -->
+    <section class="section" id="blog">
+      <span class="outline-word" aria-hidden="true">BLOG</span>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">
+            <span class="sl-slash">//</span> <span data-i18n="blog.tag">บล็อกของผม</span> <span class="section-num">[04]</span>
+          </p>
+          <h2 class="section-title" data-i18n="blog.title">บทความล่าสุด</h2>
+          <p class="section-sub" data-i18n="blog.sub">เรื่องราว บทเรียน และประสบการณ์ที่อยากแชร์ — อัปเดตผ่าน CMS โดยไม่ต้องแตะโค้ด</p>
+        </div>
+
+        <div class="blog-grid" id="blogGrid" aria-live="polite">
+          <p class="blog-status" id="blogStatus" data-i18n="blog.loading">กำลังโหลดบทความ…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section section-alt" id="contact">
+      <span class="outline-word" aria-hidden="true">CONTACT</span>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-label">
+            <span class="sl-slash">//</span> <span data-i18n="contact.tag">ช่องทางการติดต่อ</span> <span class="section-num">[05]</span>
+          </p>
+          <h2 class="section-title" data-i18n="contact.title">พูดคุยกับผมได้เลย</h2>
+          <p class="section-sub" data-i18n="contact.sub">พร้อมรับทุกคำถาม ข้อเสนอ หรือโอกาสทางงาน — ติดต่อผมได้ทุกช่องทาง</p>
+        </div>
+
+        <div class="contact-grid">
+          <a class="contact-card reveal" href="tel:+66989687435">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/>
+              </svg>
+            </span>
+            <div class="contact-info">
+              <span class="contact-label" data-i18n="contact.phone">เบอร์โทรศัพท์</span>
+              <span class="contact-value">098-968-7435</span>
+            </div>
+            <svg class="contact-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a class="contact-card reveal" style="--d:.1s" href="https://www.facebook.com/search/top?q=Sahiram%20Jehha" target="_blank" rel="noopener">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/>
+              </svg>
+            </span>
+            <div class="contact-info">
+              <span class="contact-label">Facebook</span>
+              <span class="contact-value">Sahiram Jehha</span>
+            </div>
+            <svg class="contact-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a class="contact-card reveal" style="--d:.2s" href="https://www.instagram.com/sii.yannnngxd" target="_blank" rel="noopener">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+            <div class="contact-info">
+              <span class="contact-label">Instagram</span>
+              <span class="contact-value">sii.yannnngxd</span>
+            </div>
+            <svg class="contact-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a class="contact-card contact-card--wide reveal" style="--d:.3s" href="mailto:sahiramm12345@gmail.com">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </span>
+            <div class="contact-info">
+              <span class="contact-label" data-i18n="contact.email">อีเมล</span>
+              <span class="contact-value">sahiramm12345@gmail.com</span>
+            </div>
+            <svg class="contact-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-text">© <span id="year">2026</span> <span class="footer-name">SY_</span> Sahiram Jehha</p>
+      <a href="#home" class="back-top" id="backTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ===== Blog reader (modal) ===== -->
+  <div class="reader" id="blogReader" aria-hidden="true">
+    <div class="reader-backdrop" data-reader-close></div>
+    <div class="reader-panel" role="dialog" aria-modal="true" aria-labelledby="readerTitle" aria-describedby="readerContent">
+      <div class="reader-head">
+        <div class="reader-meta" id="readerMeta"></div>
+        <button class="icon-btn reader-close" id="readerClose" type="button" data-reader-close aria-label="ปิดบทความ">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <article class="reader-content" id="readerContent"></article>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="blog.js"></script>
+</body>
+</html>

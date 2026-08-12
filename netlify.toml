@@ -1,0 +1,15 @@
+# ============================================================
+# Netlify config — เว็บ static ไม่มี build step
+# ============================================================
+
+[build]
+  publish = "."
+  # ไม่มี build command เพราะเป็นเว็บ static ล้วน ๆ
+
+# ความปลอดภัยขั้นพื้นฐาน
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
