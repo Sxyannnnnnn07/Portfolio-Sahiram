@@ -889,6 +889,24 @@ button { font-family: inherit; cursor: pointer; }
 .cover-1 { background: linear-gradient(135deg, #a3e635, #4d7c0f); }
 .cover-2 { background: linear-gradient(135deg, #22d3ee, #0e7490); }
 .cover-3 { background: linear-gradient(135deg, #fb923c, #c2410c); }
+.cover-4 { background: linear-gradient(135deg, #c084fc, #7e22ce); }
+.cover-badge {
+  position: absolute;
+  bottom: 14px; left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: "Space Grotesk", "Noto Sans Thai", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
 .cover-overlay {
   position: absolute;
   right: 14px; bottom: 14px;

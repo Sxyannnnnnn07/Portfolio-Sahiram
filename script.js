@@ -66,6 +66,8 @@ const translations = {
     "projects.p1": "เว็บร้านขายรองเท้าออนไลน์ ดีไซน์ทันสมัย รองรับการใช้งานบนมือถือ",
     "projects.p2": "เว็บแอปจัดการรายการสิ่งที่ต้องทำ เรียบง่าย ช่วยวางแผนงานได้ทุกวัน",
     "projects.p3": "เว็บแอปพลิเคชันเครื่องมือช่วยเหลือผู้ใช้ระบบปฏิบัติการ Windows",
+    "projects.p4": "ร้านแว่นตายุคใหม่ที่ผสานเทคโนโลยีสั่งตัดเลนส์และการลองแว่นตาออนไลน์อัจฉริยะ ค้นหาแว่นคู่ใจที่เข้ากับใบหน้าคุณที่สุดได้แล้ว",
+    "projects.featured": "★ โปรเจกต์เด่น",
     "projects.view": "เยี่ยมชมโปรเจกต์",
 
     "blog.tag": "บล็อกของผม",
@@ -140,6 +142,8 @@ const translations = {
     "projects.p1": "An online sneaker store with a modern, mobile-friendly design",
     "projects.p2": "A simple, clean to-do list app to help you plan your day",
     "projects.p3": "A web-based utility app built for Windows users",
+    "projects.p4": "A next-gen eyewear store combining smart lens-ordering technology with an intelligent online virtual try-on — find the perfect pair for your face",
+    "projects.featured": "★ Featured",
     "projects.view": "Visit project",
 
     "blog.tag": "My blog",
