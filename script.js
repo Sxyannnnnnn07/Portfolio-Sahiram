@@ -67,6 +67,8 @@ const translations = {
     "projects.p2": "เว็บแอปจัดการรายการสิ่งที่ต้องทำ เรียบง่าย ช่วยวางแผนงานได้ทุกวัน",
     "projects.p3": "เว็บแอปพลิเคชันเครื่องมือช่วยเหลือผู้ใช้ระบบปฏิบัติการ Windows",
     "projects.p4": "ร้านแว่นตายุคใหม่ที่ผสานเทคโนโลยีสั่งตัดเลนส์และการลองแว่นตาออนไลน์อัจฉริยะ ค้นหาแว่นคู่ใจที่เข้ากับใบหน้าคุณที่สุดได้แล้ว",
+    "projects.p5": "เว็บร้านแฟชั่นที่รับพัฒนาให้ลูกค้า — ดูแลเฉพาะฝั่งหน้าบ้าน (front-end) ทั้งหมด ไม่มีระบบหลังบ้าน ดีไซน์เรียบหรู เน้นประสบการณ์ช้อปปิ้งบนมือถือ",
+    "projects.client": "★ งานลูกค้า",
     "projects.featured": "★ โปรเจกต์เด่น",
     "projects.view": "เยี่ยมชมโปรเจกต์",
 
@@ -143,6 +145,8 @@ const translations = {
     "projects.p2": "A simple, clean to-do list app to help you plan your day",
     "projects.p3": "A web-based utility app built for Windows users",
     "projects.p4": "A next-gen eyewear store combining smart lens-ordering technology with an intelligent online virtual try-on — find the perfect pair for your face",
+    "projects.p5": "A fashion store website built for a client — front-end only, with no back-office system. Elegant, mobile-first shopping experience",
+    "projects.client": "★ Client work",
     "projects.featured": "★ Featured",
     "projects.view": "Visit project",
 

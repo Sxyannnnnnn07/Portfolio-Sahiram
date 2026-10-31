@@ -890,6 +890,7 @@ button { font-family: inherit; cursor: pointer; }
 .cover-2 { background: linear-gradient(135deg, #22d3ee, #0e7490); }
 .cover-3 { background: linear-gradient(135deg, #fb923c, #c2410c); }
 .cover-4 { background: linear-gradient(135deg, #c084fc, #7e22ce); }
+.cover-5 { background: linear-gradient(135deg, #f9a8d4, #9d174d); }
 .cover-badge {
   position: absolute;
   bottom: 14px; left: 14px;
